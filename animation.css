@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: 'Squaremaze';
-  src: url('Squaremaze.ttf');
+  src: url('../Squaremaze.ttf');
 }
 
 @font-face {
   font-family: 'Dark_Future';
-  src: url('Dark_Future.ttf')
+  src: url('../Dark_Future.ttf')
 }
 
 @font-face {
