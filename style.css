@@ -756,4 +756,5 @@ body {
   height: 100vh;
   width: 98vw;
   background: transparent;
+  overflow: hidden;
 }
