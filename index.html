@@ -43,20 +43,141 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="site.webmanifest"
-
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+  <link rel="manifest" href="site.webmanifest" <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
   <link rel="stylesheet" href="../animation.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
 
   <script src="https://kit.fontawesome.com/bc8430bc70.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+
+  <style>
+    /* The sidepanel menu */
+    .sidepanel {
+      font-family: 'radiospace';
+      height: 250px;
+      /* Specify a height */
+      width: 0;
+      /* 0 width - change this with JavaScript */
+      position: fixed;
+      /* Stay in place */
+      z-index: 90;
+      /* Stay on top */
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Black*/
+      overflow-x: hidden;
+      /* Disable horizontal scroll */
+      padding-top: 60px;
+      /* Place content 60px from the top */
+      transition: 0.5s;
+      /* 0.5 second transition effect to slide in the sidepanel */
+      border: 2px solid rebeccapurple;
+      border-width: 0px 1px 8px 0px;
+      border-radius: 0px 0px 12px 0px;
+      animation: fadeIn 3s linear;
+    }
+
+    /* The sidepanel links */
+    .sidepanel a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: flex;
+      transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidepanel a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidepanel .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    /* Style the button that is used to open the sidepanel */
+    .openbtn {
+      font-family: 'radiospace';
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #000;
+      color: white;
+      padding: 10px 15px;
+      border: 2px solid rebeccapurple;
+      border-radius: 6px; 
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+    
+    .side-panel-container {
+      position: fixed;
+      top: 0;
+    }
+    
+    @media only screen and (orientation: landscape) {
+      .openbtn {
+        
+        
+        width: 20vw;
+        height: 9vh;
+        margin: 0vh;
+        z-index: 99;
+      }
+      
+      .site {
+        margin-top: 11vh;
+        overflow: hidden;
+      }
+    }
+  </style>
+
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="html/mobile.html">Mobile View</a>
+    <a href="https://binauralsubliminal.com/album_00/player/index.html">RSS demo 1</a>
+    <a href="https://binauralsubliminal.com/album_01/player/index.html">RSS demo 2</a>
+    <a href="https://binauralsubliminal.com/album_msp/index.html">RSS demo 3</a>
+  </div>
   
-  <button class="mobile-resize-button" onclick="loadNewPage('html/mobile.html')">Mobile view</button>
-  
+    <div class="side-panel-container">
+    <button class="openbtn" onclick="toggleNav()">&#9776;  options</button>
+  </div>
+
+  <script>
+    /* Set the width of the sidebar to 250px (show it) */
+    function openNav() {
+      document.getElementById("mySidepanel").style.width = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 (hide it) */
+    function closeNav() {
+      document.getElementById("mySidepanel").style.width = "0";
+    }
+    
+    function toggleNav() {
+    var sidepanel = document.getElementById("mySidepanel");
+    var isOpen = sidepanel.style.width === "250px";
+
+    // Toggle the width based on the current state
+    sidepanel.style.width = isOpen ? "0" : "250px";
+  }
+  </script>
+
+
+  <!--<button class="mobile-resize-button" onclick="loadNewPage('html/mobile.html')">Mobile view</button>-->
+
   <!-- partial:index.partial.html -->
   <input id="scene-1" type="radio" name="scene" value="1" checked />
   <input id="scene-2" type="radio" name="scene" value="2" />
@@ -185,8 +306,8 @@
   <!-- partial -->
   <script src="js/fetch.js"></script>
   <script src="js/player.js"></script>
-  
-    <script src="js/checkScreenSize.js"></script>
+
+  <script src="js/checkScreenSize.js"></script>
 </body>
 
 </html>
